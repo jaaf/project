@@ -1,0 +1,51 @@
+<p>Il n’est pas évident de trouver ou de mesurer la capacité calorifique d’une cuve.</p>
+<p>On peut cependant essayer de l’estimer au mieux avec la précision que requiert son importance dans les calculs</p>
+<h2>Tout d’abord à quoi sert-elle ?</h2>
+<p>Dans ce logiciel, la capacité calorifique de la cuve sert à déterminer la chute de température qu’elle est censée produire sur l’eau chaude que l’on y introduit.</p>
+<p>Cela est particulièrement utile lorsqu’on utilise une méthode d’obtention de la température des paliers par infusion ou décoction.</p>
+<p>Dans le cas où la cuve est doté d’un système de chauffage, cela intéresse d’abord et avant tout le calcul de la température d’attaque (strike temperature) pour les anglo-saxons./p>
+<h2>Cas d’une cuve en acier avec chauffage</h2>
+<p>C’est le cas des équipements tout en un comme le GrainFather, le RoboBrew ou le BrewMonk.</p>
+<p>Dans un tel cas, la précision requise n’est pas très importante, dans la mesure où même s’il y a baisse de la température supèrieure à celle qu’on attend, le 
+    système de régulation va vite rétablir la température demandée pour le palier./p>
+<p>On peut essayer de la calculer en utilisant la capacité calorifique de l’acier et en calculant la masse de la cuve concernée.</p>
+<p>Cela suppose de connaître son épasseur et ses dimensions.</p>
+<p>On peut aussi procéder à une mesure directe en y injectant brutalement une quantité d’eau chaude à une température connue et en regardant de combien cette température chute.</p>
+<p> Si on note Mc la masse de la cuve, Me la masse d’eau,  T1 la température initiale de l’eau, Ta la température ambiante et T2 la température d’équilibre atteinte après l’injection, on peut écrire.</p>
+<p class="equation">
+      <p>Mc * Cc * (T2 - Ta) = Me * Ce * (T1 -T2)</p>  </p>
+<p>Les coefficient Cc et Ce représentent respectivement les capacités calorifiques de l’acier et de l’eau.</p>
+<p>La partie gauche de l’équation représente la chaleur gagnée par la cuve, celle de droite la chaleur perdue par l’eau.</p>
+<p>On peut donc écrire :</p>
+<div class="equation">Cc=( Me /Mc) * (T1 -T2) /(T2-Ta) * Ce</div>
+<p>Si on veut l’exprimer en fonction de la capacité calorifique du grain Cg =0.4 Ce</p>
+
+<div class="equation">Cc=( Me /Mc) * (T1 -T2) /(T2-Ta) * (Cg/0.4)</div>
+<p>En l’écrivant comme suit :</p>
+<div class="equation">Cc = K * Cg où K = (Me /Mc) *  (T1 -T2) /(T2-Ta) /0.4</div>
+<p>La capacité calorifique de la cuve sera alors, exprimée en équivalent kg de grain :</p>
+<div class="equation"> K * Mc</div>
+<p>Ce qui veut dire que si Cc = 3 Cg (la capacité d’un kilogramme de cuve est le triple de celle d’un kilogramme de grain, alors un kilogramme de cuve vaut 3 kilogrammes de graim)</p>
+<h2>Cas d’une cuve isolée en plastique (la glacière)</h2>
+<p>Dans ce cas, seule la capacité calorifique de la paroi intérieure nous intéresse. </p>
+<p>C’est en effet cette paroi qui va absorber instantanément la chaleur de l’eau. L’isolant quant à lui ne se réchauffe pas instantanément, et n’intervient que dans le coefficient de pertes thermiques.</p>
+<p>Nous allons prendre comme exemple une glacière de dimensions intérieures 40 cm, 25 cm et 35 cm</p>
+<p>La surface de la paroi intérieure vaut :</p>
+<p class="equation"> 4 dm * (2,5 +3.5 + 2.5 + 3.5 ) = 48 dm2 pour les faces de largeur 40 cm</p>
+<p class="equation">2.5 * 3.5 *2 = 17.5 dm2 pour les petits côtés</p>
+<p>soit un total de  65.5 dm2</p>
+<p>En supposant que l’épaisseur vaut 2 mm soit 0.02 dm le volume vaut :</p>
+<p class="equation"> 65.5 * 0.02 =1.31 dm3 ou litres</p>
+<p>Sachant que la densité du plastique va de 0.9 à 1.4 kg/dm3, en prenant la valeur moyenne on peut calculer la masse</p>
+<p class="equation">M = 1.15 kg/dm3 * 1.31 dm3 =1.5 kg</p>
+<p>Par ailleurs, sachant que la capacité calorifique de plastique va de 0.2 à 0.7 cal / g.°C, on retiendra une valeur moyenne de 0.45 </p>
+<p>La capacité calorifique du grain quant à elle vaut 0.4 * 4.18 = 1.67 cal /g.°C</p>
+<p>On peut donc dire que 1 kg de plastique vaut (du point de vue de la capacité calorifique), </p>
+<p class="equation">1 kg * 0.45 /1.67 = 0.27 kg de grain</p>
+<p>Du point de vue capacité calorifique notre cuve équivaut à </p>
+<p class="equation"> 1.5 kg *0.27 = 0.4 kg de grain</p>
+<p>Si l’épaisseur de notre paroi avait été de 1 mm au lieu de 2 mm, nous aurions eu</p>
+<p class="equation"> 0.75 kg *0.27 = 0.2 kg de grain</p>
+<p>Bien sûr vous pouvez reprendre ces calculs avec les valeurs réelles correspondant à votre type de plastique.</p>
+<p>Vous pouvez percer un petit trou dans dans la partie supérieure de la paroi intérieure pour en connaître l’épaisseur.</p>
+<p>Avec cela vous aurez un <em> ordre de grandeur </em>intéressant de cette capacité calorifique.</p>

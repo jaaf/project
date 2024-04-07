@@ -1,0 +1,30 @@
+<html style="color:blue;font-size:16px;">
+<h2>Filtrage par propriété</h2>
+<p>Il y a trois propriétés sur lesquelles se base le filtrage</p>
+<ul>
+    <li>La marque de la levure</li>
+    <li>La forme de la levure)</li>
+    <li>La cible de la levure (Ale ou Lager)</li>
+
+</ul>
+<p>Pour chacune des propriétés, le filtre peut être activé (case cochée) ou désactivé (case non cochée).</p>
+<p>Un filtre ne laisse passer que les levures dont la propriété est cochée dans la liste déroulante.</p>
+<p>Par exemple, si seuls Fermentis et Lallemand sont cochées dans la liste du filtre des marques et que ce filtre est activé, 
+    alors seul les levures de ces marques seront affichés</p>
+<p>Si aucune marque n'est cochée dans le filtre des marques et que celui-ci est activé, aucune levure ne sera affichée.</p>
+<p>Si le filtre des marques n'est pas activé, quelque soit les marques cochées, toutes les levures qui ne sont pas filtrées par ailleurs seront affichées.</p>
+<p>Les filtres fonctionnent en cascade, ainsi, en supposant que les trois filtres sont activés, ne seront affichés que 
+    les levures dont les marques sont cochées et dont les formes sont cochées et dont les cibles sont cochées.
+</p>
+<h2>Filtrage par recherche de motif</h2>
+<p>Le champ de formulaire à droite de la zone de filtrage permet de rechercher un motif dans le nom.</p>
+<p>Attention la recherche n'est déclenchée que si vous faites ENTRÉE en fin de saisie.</p>
+<p>La recherche se fait sur le nom de la levure uniquement.</p>
+<p>Par exemple, si vous entrez SAF, seuls les levures dont le nom comtient SAF (comme SAFALE US 05) seront affichés. Cette recherche est insensible à la 
+    casse : saf, SAF, ou sAf c'est pareil.</p>
+<p>Le filtrage par recherche est cascadé avec les autres filtrages. On ne recherche donc que sur la liste déjà filtrée</p>
+<p>Néanmoins la recherche ne se fait que sur le dernier champ de recherche utilisé</p>
+<p>Par ailleurs, lorsqu'un filtrage par propriété est modifié, les champs de recherche dans le nom
+     est effacé et ignoré. Il faut resaisir un texte pour effectuer une recherche sur le dernier filtrage opéré.
+</p>
+</html>

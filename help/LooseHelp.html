@@ -1,0 +1,45 @@
+
+<p>L'indicateur « en vrac » pour les houblons sert à deux choses :</p>
+<ul>
+    <li>évaluer l'absorption d'eau par les houblons</li>
+    <li>tenir compte d'un surcroît d'amertume apporté par le houblon durant la phase de « hop-stand » et la phase de transfert vers le fermenteur</li>
+</ul>
+<h3>Évaluer l'absorption d'eau par les houblons</h3>
+<p>Il faut savoir que le houblon absorbe une quantité d'eau relativement importante relativement à sa masse. Environ 8 kg d'eau par kg de houblon</p>
+<p>Pour des bières fortement amérisées avec des houblons à faible taux d'alpha acides, ces volumes sont loin d'être négligeables.</p>
+<p>Or, lorsque le houblon est placé dans une chaussette et retiré en fin d'ébullition, le calcul de l'eau absorbée – qui doit être compensé – est facile à calculer.</p>
+<p>Là où les choses se compliquent, c'est lorsqu'il est utilisé en vrac. </p>
+<p>En effet, si la bouilloire comporte un faux fond filtrant, une partie de ce houblon seulement restera bloquée sur ce fond filtrant avec son eau absorbée.</p>
+<p>Si ce faux fond est au-dessus de volume de rétention de la bouilloire, il faudra tenir compte de ce volume retenu par le faux fond.</p>
+<p>Par contre, si le filtrage intervient au fond du volume de retention de la bouilloire – comme c'est par exemple le cas pour le GrainFather avec son tube filtrant en fond de cuve – 
+    alors le volume d'eau retenu se confond avec la retention de la bouilloire et ne crée pas de perte supplémentaire.
+</p>
+<p>Rappelons que la rétention – ou volume retenu dans la bouilloire – est le volume de môut qui reste, volontairement ou pas dans la bouilloire après le transfert 
+    du moût dans le fermenteur. Cette donnée est fournie dans la déclaration de l'équipement
+</p>
+<p>Pour simplifier l'approche lors d'une utilisation des houblons en vrac, nous avons prévu dans la description de l'équipement un coefficient réducteur pour l'absorption des houblons
+     lors d'une utilisation en vrac. Ce coefficient est inférieur à 1. C'est à vous de l'apprécier selon la configuration de votre équipement.
+</p>
+<p>Par exemple si vous considérez que tout le houblon sera retenu en fond de cuve dans le volume de rétention, alors ce coefficient vaut 0</p>
+<p>Par contre si vous considérez que tout le houblon sera retenu par le faux fond au-dessus du volume de rétention alors ce coefficient vaut 1.</p>
+<p>Pour en finir avec les exemples, si vous considérez que seulment 50% des houblons sera retenu par le faux fond au-dessus du volume de rétention, et que le reste sera transféré au fermenteur
+     alors ce coefficient vaut 0.5.
+</p>
+<h3>Tenir compte d'un surcroît d'amertume</h3>
+<p>Si les houblons sont ajoutés en vrac, ils ne cessent pas de produire des IBU après que l'ébullition a cessé.</p>
+<p>Notre calcul se base sur les équations de Malowicky énnoncées dans sa thèse de 2004 "Hop Bitter Acid Isomerization and Degradation Kinetics in a Model Wort Boiling System" en particulier
+    sur les coefficients K1 et K2.
+</p>
+<p>Nous procédons par intégration sur des intervalles de temps très petits. Pour les houblons utilisés avant le hors-flamme, cette integration nous sert d'abord à calculer les alpha acides résiduels en fin d'ébullition, sans nous préoccuper des iso-alpha acides
+    produits ou dégradés
+</p>
+<p>Partant de ces alpha acides résiduels, nous utilisons l'integration pour la production et la dégradation selon les coefficients k1 et K2.</p>
+<p>Nous appliquons le même calcul aux alpha acides des houblons utilisés en hopstand.</p>
+<p>Les valeurs de température sont calculés en fonction des performances des refroidisseurs données dans la définition d'un équipement et en appliquant les lois de refroidissement empiriques 
+    établies par alchemyoverlord </p>
+<p>L'intégration est limitée à des températures supérieures à 70 °C.</p>
+<p>Il faut se rendre compte que les ibu supplémentaires calculés pour des houblonnages en début d'ébullition auront probablement une incidence relative beaucoup plus limitée que pour des 
+    houblonnages en fin d'ébullition. En effet, un houblon ajouté très tardivement aura conservé presque tout son potentiel amérisant, tandins qu'un houblon ajouté précocément l'aura pratiquement
+    totalement épuisé. 
+</p>
+<p>Pour un houblont très tardif (5 min par exemple), les valeurs pourront être multipliées par 2 ou 3 selon les autres paramètres.</p>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowBase</class>
+ <widget class="QMainWindow" name="MainWindowBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1271</width>
+    <height>767</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1271</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuInventaires">
+    <property name="title">
+     <string>Inventaires</string>
+    </property>
+    <addaction name="actionInventoryFermentables"/>
+    <addaction name="actionInventoryHops"/>
+    <addaction name="actionInventoryYeasts"/>
+    <addaction name="actionInventoryMiscs"/>
+   </widget>
+   <widget class="QMenu" name="menuPublic">
+    <property name="title">
+     <string>Données de base</string>
+    </property>
+    <addaction name="actionBrand"/>
+    <addaction name="separator"/>
+    <addaction name="actionSuppliers"/>
+    <addaction name="actionYBrand"/>
+    <addaction name="actionCountries"/>
+   </widget>
+   <widget class="QMenu" name="menuProfils">
+    <property name="title">
+     <string>Profils</string>
+    </property>
+    <addaction name="actionEquipmentProfiles"/>
+    <addaction name="actionWaterProfiles"/>
+    <addaction name="actionWaterTargetProfiles"/>
+    <addaction name="separator"/>
+    <addaction name="actionStyles"/>
+    <addaction name="separator"/>
+    <addaction name="actionRests"/>
+   </widget>
+   <widget class="QMenu" name="menuMon_brassage">
+    <property name="title">
+     <string>Mon brassage</string>
+    </property>
+    <addaction name="actionMyRecipes"/>
+    <addaction name="actionMySessions"/>
+   </widget>
+   <widget class="QMenu" name="menuImports_Exports">
+    <property name="title">
+     <string>Imports Exports</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="actionImport"/>
+    <addaction name="actionRecopier"/>
+   </widget>
+   <widget class="QMenu" name="menuDivers">
+    <property name="title">
+     <string>Divers</string>
+    </property>
+    <addaction name="actionEffacer_les_choix_initiaux"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>À propos</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>Affichage</string>
+    </property>
+    <addaction name="actionFont"/>
+   </widget>
+   <addaction name="menuInventaires"/>
+   <addaction name="menuProfils"/>
+   <addaction name="menuPublic"/>
+   <addaction name="menuMon_brassage"/>
+   <addaction name="menuImports_Exports"/>
+   <addaction name="menuDivers"/>
+   <addaction name="menuView"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="actionInventoryFermentables">
+   <property name="text">
+    <string>Fermentables</string>
+   </property>
+  </action>
+  <action name="actionInventoryHops">
+   <property name="text">
+    <string>Houblons</string>
+   </property>
+  </action>
+  <action name="actionSupplier">
+   <property name="text">
+    <string>Fournisseurs de houblons</string>
+   </property>
+   <property name="font">
+    <font/>
+   </property>
+  </action>
+  <action name="actionBrand">
+   <property name="text">
+    <string>Marques de fermentables</string>
+   </property>
+  </action>
+  <action name="actionCountries">
+   <property name="text">
+    <string>Pays</string>
+   </property>
+  </action>
+  <action name="actionYBrand">
+   <property name="text">
+    <string>Fournisseurs de levures</string>
+   </property>
+  </action>
+  <action name="actionInventoryYeasts">
+   <property name="text">
+    <string> Levures</string>
+   </property>
+  </action>
+  <action name="actionInventoryMiscs">
+   <property name="text">
+    <string>Ingrédients divers</string>
+   </property>
+  </action>
+  <action name="actionEquipmentProfiles">
+   <property name="text">
+    <string>Profils d'équipment</string>
+   </property>
+  </action>
+  <action name="actionWaterProfiles">
+   <property name="text">
+    <string>Profils d'eau source</string>
+   </property>
+  </action>
+  <action name="actionWaterTargetProfiles">
+   <property name="text">
+    <string>Profils d'eau cible</string>
+   </property>
+  </action>
+  <action name="actionMyRecipes">
+   <property name="text">
+    <string>Mes recettes</string>
+   </property>
+  </action>
+  <action name="actionMySessions">
+   <property name="text">
+    <string>Mes session de brassage</string>
+   </property>
+  </action>
+  <action name="actionStyles">
+   <property name="text">
+    <string>Styles</string>
+   </property>
+  </action>
+  <action name="actionImportFermentables">
+   <property name="text">
+    <string>Importer des fermentables</string>
+   </property>
+  </action>
+  <action name="actionImportHops">
+   <property name="text">
+    <string>Importer des houblons</string>
+   </property>
+  </action>
+  <action name="actionImportYeasts">
+   <property name="text">
+    <string>Importer des levures</string>
+   </property>
+  </action>
+  <action name="actionImportMiscs">
+   <property name="text">
+    <string>importer des divers</string>
+   </property>
+  </action>
+  <action name="actionImportStyles">
+   <property name="text">
+    <string>Importer des styles</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Importer</string>
+   </property>
+  </action>
+  <action name="actionMes_sessions">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/award-reward-svgrepo-com.svg</normaloff>:/icons/award-reward-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Mes sessions</string>
+   </property>
+   <property name="toolTip">
+    <string>Mes session</string>
+   </property>
+  </action>
+  <action name="actionImportYeastBrands">
+   <property name="text">
+    <string>Importer des marques de levures</string>
+   </property>
+  </action>
+  <action name="actionImportSourceWaters">
+   <property name="text">
+    <string>Importer des profils d'eau source</string>
+   </property>
+  </action>
+  <action name="actionImportTargetWaters">
+   <property name="text">
+    <string>Importer des profils d'eau cible</string>
+   </property>
+  </action>
+  <action name="actionImportFermentableBrands">
+   <property name="text">
+    <string>Importer des fabricants de fermentables</string>
+   </property>
+  </action>
+  <action name="actionImportMashRests">
+   <property name="text">
+    <string>Importer des paliers d'empatage</string>
+   </property>
+  </action>
+  <action name="actionRests">
+   <property name="text">
+    <string>Paliers d'empâtage</string>
+   </property>
+  </action>
+  <action name="actionImportHopSuppliers">
+   <property name="text">
+    <string>Importer des vendeurs de houblons</string>
+   </property>
+  </action>
+  <action name="actionImportEquipmentProfiles">
+   <property name="text">
+    <string>Importer des profils d'équipement</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="text">
+    <string>Taille de police</string>
+   </property>
+  </action>
+  <action name="actionSuppliers">
+   <property name="text">
+    <string>Vendeurs de houblons</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>À propos de ce logiciel</string>
+   </property>
+  </action>
+  <action name="actionRecopier">
+   <property name="text">
+    <string>Recopier les fichiers d’initialisation</string>
+   </property>
+  </action>
+  <action name="actionEffacer_les_choix_initiaux">
+   <property name="text">
+    <string>Effacer les choix initiaux</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../base-data/icons/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

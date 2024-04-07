@@ -1,0 +1,35 @@
+<body>
+    <h2>Basculer d’une base mysql (mariadb) vers une base sqlite3</h2>
+    <div class="note">Ce tutoriel existe en vidéo sur la chaîne youtube de l’application.</div>
+    <hr>
+    <h3>Installer le logiciel Python </h3>
+    <p>Pour cela rendez-vous sur le site <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>, 
+    téléchargez un installateur correpondant à votre version de Windows et cliquez dessus pour l’installer</p>
+    <h3>Créer un environnement virtuel et convertir la base</h3>
+    <p>Pour créer un environnement virtuel tapez</p>
+    <p class="code"> <em>C.\Users\joe> </em> python -m venv monvenv
+    </p>
+    <hr>
+    <h3>Activez l’environnement virtuel</h3>
+    <p class="code"> <em>C:\Users\joe> </em> monvenv/Scripts/activate 
+    <p>Ensuit installez le convertisseur dans l’environnement virtuel</p>
+    <p class="code"> <em>(monvenv) C:\Users\joe> </em>pip install mysql-to-sqlite3
+    <p>Une fois le convertisseur installé lancez la commande </p>
+    <p class="code"> <em>(monvenv) C.\Users\joe> </em> 
+        sqlite3mysql -f C:\Users\joe\AppData\Local\biere\mabasesqlite -d mabasemysql -u root --mysql-password "lemotdepasseroot" -K
+        <p>Dans cette commande :</p>
+        <ul>
+            <li>joe est à remplacer par votre nom d’utilisateur<</li>
+            <li>mabasesqlite est à remplacer par le nom de votre base de données sqlite</li>
+            <li>mabasemysql est à remplacer par le nom de votre nouvelle base de données mysql</li>
+            <li>lemotdepasseroot est à remplacer par le mot de passe d’administration du serveur mysql</li>
+        </ul>
+        <p>Sortez de l’environnement virtuel (facultatif)</p>
+        <p class="code"> <em>(monvenv) C:\Users\joe> </em> deactivate</p>
+
+
+
+     <h3>Effacer les précédents identifiants </h3>
+     <p>Démarrez l’application et dans le menu «Divers» cliquez sur «Effacer les choix initiaux».</p>
+     <p>Redémarrez l’application est saisissez vos nouveaux choix (mysql, nom de la base, mot de passe)</p>
+</body>

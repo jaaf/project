@@ -1,0 +1,45 @@
+<body>
+    <h2>Basculer d’une base sqlite3 vers une base mysql (mariadb)</h2>
+    <div class="note">Ce tutoriel existe en vidéo sur la chaîne youtube de l’application.</div>
+    <hr>
+    <h3>Installer le logiciel Python </h3>
+    <p>Pour cela rendez-vous sur le site <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>, 
+    téléchargez un installateur correpondant à votre version de Windows et cliquez dessus pour l’installer</p>
+
+    <hr>
+    <h3>Créer un environnement virtuel et convertir la base</h3>
+    <p>Pour créer un environnement virtuel tapez</p>
+    <p class="code"> <em>C.\Users\joe> </em> python -m venv monvenv
+    </p>
+    <p>Activez l’environnement virtuel</p>
+    <p class="code"> <em>C:\Users\joe> </em> monvenv/Scripts/activate 
+    <p>Ensuit installez le convertisseur dans l’environnement virtuel</p>
+    <p class="code"> <em>(monvenv) C:\Users\joe> </em>pip install sqlite3-to-mysql 
+    <p>Une fois le convertisseur installé lancez la commande </p>
+    <p class="code"> <em>(monvenv) C.\Users\joe> </em> 
+        sqlite3mysql -f C:\Users\joe\AppData\Local\biere\mabasesqlite -d mabasemysql --mysql-password "lemotdepasse"
+        <p>Dans cette commande :</p>
+        <ul>
+            <li>joe est à remplacer par votre nom d’utilisateur<</li>
+            <li>mabasesqlite est à remplacer par le nom de votre base de données sqlite</li>
+            <li>mabasemysql est à remplacer par le nom de votre nouvelle base de données mysql</li>
+        </ul>
+        <hr>
+        <h3>Créer l’utilisateur biere@localhost et lui donner un mot de passe</h3>
+        <p class="code"> <em>C:\Users\joe> </em>  mysql -u root -p lemotdepasseroot
+           <p class="code"> <em>MariaDB [(none)]></em>  use mabasemysql;</p>
+           <p class="code"> <em>MariaDB [(mabasemysql)]></em>  create user biere@localhost identified by "lemotdepasseappli";</p>
+           <p>Dans ces commandes:</p>
+           <ul>
+            <li> lemotdepasseroot est à remplacer par le mot de passe d’administration du serveur de base de données</li>
+               <li>joe est à remplacer par votre nom d’utilisateur</li>
+               <li>mabasemysql est à remplacer par le nom de votre base de données mysql nouvellement créée</li>
+               <li>lemotdepasseappli est celui qui vous sera demandé lors du démarrage de l’application après effacement des précédents 
+                   choix initiaux
+               </li>
+           </ul>
+        <hr>
+     <h3>Effacer les précédents identifiants </h3>
+     <p>Démarrez l’application et dans le menu «Divers» cliquez sur «Effacer les choix initiaux».</p>
+     <p>Redémarrez l’application est saisissez vos nouveaux choix (mysql, nom de la base, mot de passe)</p>
+</body>

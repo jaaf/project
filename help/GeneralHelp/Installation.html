@@ -1,0 +1,75 @@
+<body>
+    <h2>Variantes d’installation de Bière</h2>
+    <p>Bière peut être installé de deux manières :</p>
+    <ul>
+        <li>pour une utilisation avec le système de base de données sqlite</li>
+        <li>pour une utilisation avec le système de basse de données mysql</li>
+
+    </ul>
+    <p>L’installation la plus simple qui est recommandée c’est la première c.-à-d. sqlite.</p>
+    <p>Sachez cependant, qu’il est possible de convertir la base de données sqlite en base de données mysql et de basculer l’application 
+        dessus.
+    </p>
+    <p>La réciproque est également vraie</p>
+
+    <h2>Installation pour une utilisation avec sqlite</h2>
+    <p>Après avoir télchargé l’installateur sur Github, double cliquez sur cet exécutable pour lancer l’installation.</p>
+    <p>Lancez l’application à partir de l’icône sur le bureau.</p>
+    <p>L’application démarre dans un terminal (interprête de commandes).</p>
+    <p>Une première invite vous demande de choisir en sqlite et mysql</p>
+    <p>Tapez sqlite</p>
+    <p>C’est tout: l’application démarre.</p>
+    <p>Lors du prochain lancement il ne vous sera rien demandé.</p>
+    <div class="note">Vous pouvez regarder la vidéo correpondante sur la chaîne youtube dédiée à cette application.</div>
+
+    <h2>Installation pour une utilisation avec mysql</h2>
+    <p>Vous devez d’abord installer le serveur de base de données mysql.</p>
+    <h3>Création de la base de données, de l’utilisateur représentant l’application et de son mot de passe</h3>
+    <p>Une fois le serveur mysql installé, ouvrez un terminal et tapez: </p>
+    <p class="code"><em>$</em>  mysql -u root -p</p>
+    <div class="note">Le caractère $ en tête de ligne symbolise l’invite de commande de l’utilisateur standard.</div>
+    
+    <p>À la suite de cette commande, il vous sera demandé de saisir le mot de passe de l’administrateur de la base de données.</p>
+    <p>Une réponse commençant par Query OK indique que les choses se sont bien passées.</p>
+    <p>Maintenant, vous devez avoir l’invite de commande du client mysql c.-à-d. MariaDB [(none)]></p>
+    <div class="note">Attention, à partir de maintenant toutes les commnandes saisies derrière l’invite de commande  de mysql doivent se 
+        termier par un point-virgule.
+    </div>
+    <p>Derrière cette invite tapez la commande create database suivie du nom de la  base de données</p>
+    <p class="code"> <em>MariaDB [(none)]></em>  create database &lt; nom de la base de données&gt;;</p>
+    <div class="note">Vous pouvez choisir le nom que vous voulez (en évitant les espaces) et l’entrer sans les signes &lt; et &gt;</div>
+    <p>Une réponse commençant par Query OK indique que les choses se sont bien passées.</p>
+    <p>Basculez ensuite sur cette base de données avec la commande suivante:</p>
+    <p class="code"> <em>MariaDB [(none)]></em>  use &lt; nom de la base de données&gt;;</p>
+    <p>L’invite de commande devient :  MariaDB [(&lt;nom de la base&gt;)]></p>
+    <p>Maintenant créez l’utilisateur représentant l’application avec la commande suivante:</p>
+    <p class="code"> <em>MariaDB [(&lt; nom de la base de données&gt;)]></em> 
+    create user biere@localhost identified by "&lt;Mot de passe&gt;"; </nom></p>
+    <p>en remplaçant &lt;Mot de passe&gt; par le mot de passe de l’utilisateur représentant l’application de votre choix. </p>
+    <div class="note">Notez bien ce mot de pass</div>
+    <div class="note">Vous pouvez regarder la vidéo correspondante sur la chaîne youtube dédiée à cette application.</div>
+     <p>Il ne reste plus qu’à autoriser cet utilisateur à faire ce qu’il veut sur la base de données.</p>
+     <p class="code"> <em>MariaDB [(&lt; nom de la base de données&gt;)]></em> 
+        grant all privileges on &lt; nom de la base de données&gt;.* to  biere@localhost; </nom></p>
+     <div class="note">Vous pouvez fermer le terminal maintenant.</div>
+
+     <h3>Pour faciliter la compréhension de ce qui précède voici un exemple complet</h3>
+     <p  class="code"> <em>$</em> mysql -u root -p</p>
+     <p class="code"><em>MariaDB [(none)]></em> create database base1;</p>
+    <p class="code"><em>MariaDB [(base1)]></em> create user biere@localhost identified by "XyZ!1234";</p>
+    <p class="code"><em>MariaDB [(base1)]></em> grant all privileges on base1.* to biere@localhost;</p>
+
+        <h3>Installation de Bière</h3>
+        <p>Après avoir télchargé l’installateur sur Github, double cliquez sur cet exécutable pour lancer l’installation.</p>
+        <p>Lancez l’application à partir de l’icône sur le bureau.</p>
+        <p>L’application démarre dans un terminal (interprête de commandes).</p>
+        <p>Une première invite vous demande de choisir en sqlite et mysql</p>
+        <p>Tapez mysql</p>
+        <p>Une nouvelle invite vous réclame le nom de la base de données</p>
+        <p>Saisissez-le</p>
+        <p>une nouvelle invite vous demande le mot de passe de l’utilisateur représentant l’application</p>
+        <p>Saisissez-le</p>
+        <p>C’est tout: l’application démarre.</p>
+        <p>Lors du prochain lancement il ne vous sera rien demandé.</p>
+        <div class="note">Vous pouvez regarder la vidéo correpondante sur la chaîne youtube dédiée à cette application.</div>
+</body>

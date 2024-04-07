@@ -1,0 +1,31 @@
+<html style="color:blue;font-size:16px;">
+<h2>Filtrage par propriété</h2>
+<p>Il y a trois propriétés sur lesquelles se base le filtrage</p>
+<ul>
+    <li>Le fournisseur du houblon</li>
+    <li>La forme du houblon (granulet, cones, extrait)</li>
+    <li>Le but du houblon (amertume, arômes, les deux)</li>
+
+</ul>
+<p>Pour chacune des propriétés, le filtre peut être activé (case cochée) ou désactivé (case non cochée).</p>
+<p>Un filtre ne laisse passer que les houblons dont la propriété est cochée dans la liste déroulante.</p>
+<p>Par exemple, si seuls ROLLING BEERS et BROUWLAND sont cochés dans la liste du filtre de fournisseur et que ce filtre est activé, 
+    alors seul les houblons de ces fournisseurs seront affichés</p>
+<p>Si aucun fournisseur n'est coché dans le filtre des fournisseur et que celui-ci est activé, aucun houblon ne sera affiché.</p>
+<p>Si le filtre des fournisseur n'est pas activé, quelque soit les fournisseurs cochées, tous les houblons qui ne sont pas filtrés par ailleurs seront affichés</p>
+<p>Les filtres fonctionnent en cascade, ainsi, en supposant que les trois filtres sont activés, ne seront affichés que 
+    les houblons dont les fournisseurs sont cochés et dont les formes sont cochées et dont les buts sont cochés.
+</p>
+<h2>Filtrage par recherche de motif</h2>
+<p>Le champ de formulaire à droite de la zone de filtrage permet de rechercher un motif dans le nom.</p>
+<p>Celui un peu plus  à gauche recherche un motif dans l'année</p>
+<p>Attention la recherche n'est déclenchée que si vous faites ENTRÉE en fin de saisie.</p>
+<p>La recherche se fait sur le nom ou l'année de récolte du houblon uniquement.</p>
+<p>Par exemple, si vous entrez MOSA, seuls les houblons dont le nom comtient MOSA (comme MOSAIC) seront affichés. Cette recherche est insensible à la 
+    casse : mosa, MOSA, ou mOsA c'est pareil.</p>
+<p>Le filtrage par recherche est cascadé avec les autres filtrages. On ne recherche donc que sur la liste déjà filtrée</p>
+<p>Néanmoins la recherche ne se fait que sur le dernier champ de recherche utilisé</p>
+<p>Par ailleurs, lorsqu'un filtrage par propriété est modifié, les champs de recherche par année et dans le nom
+     sont effacés et ignorés. Il faut resaisir un texte pour effectuer une recherche sur le dernier filtrage opéré.
+</p>
+</html>

@@ -1,0 +1,29 @@
+
+
+<body>
+<h2>Filtrage par propriété</h2>
+<p>Il y a trois propriétés sur lesquelles se base le filtrage</p>
+<ul>
+    <li>La marque du fermentable</li>
+    <li>La catégorie du fermentable</li>
+    <li>L'ingrédient de base du fermentable</li>
+
+</ul>
+<p>Pour chacune des propriétés, le filtre peut être activé (case cochée) ou désactivé (case non cochée).</p>
+<p>Un filtre ne laisse passer que les fermentables dont la propriété est cochée dans la liste déroulante.</p>
+<p>Attention: dans la liste déroulante, pour cocher une case il faut cliquer <em> sur le texte, pas sur la case</em> </p>
+<p>Par exemple, si seuls WEYERMANN et THE SWAEN sont cochés dans la liste du filtre de marques et que ce filtre est activé, 
+    alors seul les fermentables de marque WEYERMANN et THE SWAEN seront affichés</p>
+<p>Si aucune marque n'est cochée dans le filtre de marque et que celui-ci est activé, aucun fermentable ne sera affiché.</p>
+<p>Si le filtre de marque n'est pas activé, quelque soit les marques cochées, tous les fermentables qui ne sont pas filtrés par ailleurs seront affichés</p>
+<p>Les filtres fonctionnent en cascade, ainsi, en supposant que les trois filtres sont activés, ne seront affichés que 
+    les fermentables dont les marques sont cochées et dont les catégories sont cochées et dont les ingrédients de base sont cochés.
+</p>
+<h2>Filtrage par recherche de motif</h2>
+<p>Le champ de formulaire à droite de la zone de filtrage permet de rechercher un motif dans le nom.</p>
+<p>Attention la recherche n'est déclenchée que si vous faites ENTRÉE en fin de saisie.</p>
+<p>La recherche se fait sur le nom du fermentable uniquement.</p>
+<p>Par exemple, si vous entrez CARA, seuls les fermentables dont le nom comtient CARA seront affichés. Cette recherche est insensible à la casse : cara, CARA, ou cArA c'est pareil.</p>
+<p>Le filtrage par recherche est cascadé avec les autres filtrages. On ne recherche donc que sur la liste déjà filtrée</p>
+
+</body>

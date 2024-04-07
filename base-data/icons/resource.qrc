@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="base-data/icons">
+    <file>star-favorite-svgrepo-com.svg</file>
+    <file>recipe-svgrepo-com.svg</file>
+  </qresource>
+</RCC>

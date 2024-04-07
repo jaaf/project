@@ -1,0 +1,1 @@
+this file is absolutely necessary at compilation time with pyinstaller

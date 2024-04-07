@@ -1,0 +1,97 @@
+
+
+
+    
+<h1>Importation et exportation d'ingrédients</h1>
+<h2>Généralités</h2>
+<p>Les opérations d'importation ne sont pas strictement nécessaires. Elles sont là pour vous aider à constituer votre base de données. <strong>L'idée étant de n'enregistrer que
+    ce dont vous avez réellement besoin.</strong>
+</p>
+<p>Rien ne sert, par exemple, de saisir tous les fermentables du monde si vous n'utilisez qu'une ou deux marques. Cela vous obligera à des opérations de filtrage pénibles pour trouver
+    le produit qui vous intéresse lorsque vous saisirez une recette.
+</p>
+<p>Les opérations d'importation exportation d'ingrédients sont basées sur des fichiers csv. Ces fichiers sont obtenus à partir de fichier tableur Libreoffice Calc sous Linux
+    et Excell sous Windows.
+</p>
+<h2>Où trouver les fichiers de base</h2>
+<p>L'application est fournie avec quelques fichiers pour amorcer le système.</p>
+<p>Ces fichiers sont dans le dossier /base_data</p>
+<p>Si vous décidez d'en créer vous-même, placez-les dans le dossier partage_biere qu'on vous a demandé de créer sur votre système, à la racine de votre utilisateur, au moment de l'installation </p>
+<p>À l'intérieur du container, vous les retrouverez sur /partage_biere</p>
+<h2>Ordre des importations</h2>
+<h3>Fermentables</h3>
+<p>Vous devez d'abord importer (ou créer à la main) une liste de pays d'où sont censés provenir les fermentables. </p>
+<p>Ensuite vous pourrez importer les marques de fermentables. Les marques associées à un pays qui n'a pas été enregistré ne seront pas importées. Si une marque n'a pu être importée pour cette raison,  vous pouvez ajouter
+    manuellement le pays correspondant dans la liste des pays et refaire l'importation des marques. Les marques déjà saisies seront ignorées.
+</p>
+<p>Ensuite, vous pourrez importer les fermentables eux-mêmes. De la même façon, si un fermentable a une marque non enregistrée, il ne pourra être importé. Il faut ajouter la marque d'abord et relancer 
+    l'importation du fichier des fermentables.
+
+</p>
+<p>Vous pouvez bien sûr importer plusieurs fichiers de fermentables, de marques ou de pays.
+    <p>Pour finir, faîtes très attention à ce que l'orthographe d'une marque dans le fichier des marques, soit rigoureusement identique à celle du fichier des fermentables. Idem pour les pays.</p>
+    <p><strong>Attention aux caractères invisibles!</strong></p>
+<h3>Houblons</h3>
+<p>Le raisonnement est le même avec les houblons. Avant de les importer, il faut importer (ou créer à la main ) une liste des fournisseurs.</p>
+</p>
+<h2>Fichier tableur (calc ou excell)</h2>
+<p>Le fichier tableur de base comprend une colonne par champ de l'ingrédient, y compris l'id en première colonne.</p>
+<p>Ce fichier peut être construit à la main ou résulter d'une exportation de la base de données soit directement depuis mysql, soit avec phpmyadmin (solution la plus simple)</p>
+
+<h3>Contraintes</h3>
+<p>Les contraintes sont les suivantes</p>
+<ul>
+    <li>Les valeurs numériques doivent utiliser le point (.) au lieu de la virgule (,) comme séparateur des décimales.</li>
+    <li>La première colonne celle de l'id ne doit contenir qu'un seul caractère le symbole Neptune ♆ (unicode u+2646, pas forcément visible selon les polices) 
+        (voir en bas de ce texte la méthode de saisie)</li>
+</ul>
+<p>La deuxième contrainte tient au fait qu'on ne peut se baser sur une lecture par lignes du fichier csv car certains champs sont des textes 
+    qui comprennent des caractères de fin de ligne. On utilise donc comme délimiteur d'item (fermentable, houblon, marque de fermentable, etc.) le caractère (barre à roue) ⎈ hautement improbable dans les textes.</p>
+
+
+    <p>Voici un exemple de fichier volontairement tronqué.</p>
+    <div style="border:1px solid; padding:10px">
+        <img src="base-data/images/yeasts.png" alt="">
+    </div>
+<p>On aperçoit bien le caractère ♆ qui est le délimiteur de ligne dans la colonne de l'id. </p>
+<p><strong>La ligne des titres de colonne a elle aussi été supprimée pour ne pas apparaitre dans le fichier csv.</strong></p>
+
+
+<h3>Conversion en fichier csv</h3>
+<p>Pour convertir le fichier en csv et pour les mêmes raisons que précédemment, on utilise un séparateur de champs très improbable dans les textes. </p>
+<p>Nous avons choisi le ⎈ (unicode u+2388)</p>
+<p>L'image suivant montre un exemple de configuration de la converson en csv sur Linux avec le tableur Libreoffice calc.</p>
+<div style="width:200px; ">
+    <img src="base-data/images/Export_csv.png"  alt="Export_csv.png">
+
+</div>
+
+
+<h2>Le fichier csv </h2>
+<p>Une fois la conversion en csv effectuée, vous devez suppprimer si nécessaire la ligne correspondant aux titres des colonnes et remplacer les virgules éventuelles 
+    des nombres par des points. Pour cela procédez par colonnes ou groupe de colonnes pour éviter les remplacements dans les zones de texte.
+</p>
+<p>Voici un exemple de fichier csv </p>
+<div>
+    <img src="base-data/images/yeast_csv.png" alt="">
+</div>
+<p>On aperçoit bien le délimiteur d'item qui est le ♆ et le délimiteur de champ qui est le ⎈</p>
+
+<h2>Saisie des caractères unicode</h2>
+<h3>Sur linux</h3>
+<p>Commencez par un appui simultané et maintenu sur les touches <em>Control</em> et <em>Majuscules</em> (Ctrl+Maj) puis pressez la lettre <em>u</em>.
+    La lettre apparait soulignée.</p>
+    <p>À partir le là, relachez tout en commençant par le <em>u</em></p>
+    <p>La lettr <em>u</em> soulignée reste apparente.Tant que vous ne faites pas <em>Entrée</em>, les choses restent en l'état.</p>
+    <p>Tapez le code par exemple 2388 pour ⎈ et faites <em>Entrée</em></p>
+    <p>Voilà, c'est tout. Le caractère ⎈ apparait.</p>
+
+<h3>Sur Windows</h3>
+<p>Commencez par saisir le code, par exemple : 2646 pour Neptune ♆, et directement  (sans taper d’espace), tapez la combinaison de touches Alt+x.  </p>
+<p>Pour que le caractère soit visible, il faudra bien sûr qu’il fasse partie de la police courante.</p>
+<h2>Feedback</h2>
+<p>Voici ce qu'affiche une importation réussie</p>
+<div>
+    <img src="base-data/images/Import_success.png" alt="">
+</div>
+

@@ -1,0 +1,43 @@
+
+<body>
+   <h1>Principe des saisies d'ingrédients dans une recette ou une session de brassage</h1>
+
+<h2>Présentation de l'interface</h2>
+<p>Lors de la <em>saisie d'ingrédients</em>   (voire de paliers d'empâtage) dans une recette l'interface est toujours le même.</p>
+<p>L'image suivante en présente un exemple dans le cas de la saisie de fermentables.</p>
+
+<div> 
+ <img src="base-data/images/Selector.png" alt=""> 
+
+</div>
+   <p>L'interface est divisé en deux verticalement. À gauche on trouve les ingrédients déjà selectionné par la recette. À droite, se trouve la liste publique des 
+    ingrédients dans laquelle on peut piocher de nouveau ingrédients pour les importer dans la recette.
+   </p>
+
+   <h2>La logique de sélection</h2>
+   <p>On sélectionne un élément dans une des deux listes en cliquant dessus. On le dé-sélectionne de la même manière.</p>
+   <p>C'est sur la manière de sélectionner que l'on bascule d'un mode de fonctionnement  à l'autre.</p>
+   <p>On distingue :</p>
+    <dl>
+      <dt>Le mode « Importation ou suppression »</dt>
+      <dd> <p>Il a pour but d'importer un élement de la liste publique vers la liste de gauche (recette, session de brassage ou inventaire</p>
+      <p>On l'obtient en ayant un élement sélectionné dans la liste publique à droite et rien de sélectionné dans la liste de gauche.</p> </dd>
+    </dl>
+ 
+
+    <dt>Le mode « Modification ou suppression d'un élément de la liste de gauche (recette, session de brassage ou inventaire</dt>
+    <dd><p>Il permet de modifier un élément déjà importé.</p>
+   <p>On l'obtient en ayant un élément sélectionné uniquement à gauche.</p></dd>
+   <dt>Le mode « Remplacement » </dt>
+   <dd><p>Il permet de remplacer un élément déjà importé par un élément de la liste publique.</p>
+   <p>On l'obtient en ayant un élément sélectionné de chaque côté.</p></dd>
+
+   <h2>Mise en œuvre des modes</h2>
+   <p>Quelque soit le mode choisi dans la liste ci-dessus, chaque sollicitation du mode entraîne la présentation d'un formulaire adapté.</p>
+   <p>Le remplissage du formulaire suivi d'un clic sur le bouton ad hoc, provoque la réalisation de l'opération visée.</p>
+
+   <h2>Filtrage de la liste publique pour trouver facilement un ingrédients</h2>
+   <p>Ce fonctionnement est décrit de manière détaillé dans l'aide contextuelle que l'on obtient en cliquant sur le bouton vert à côté du formulaire de filtrage au bas de la liste publique 
+      (la zone avec un fond vert clair sur l'image ci-dessus).
+   </p>
+</body>

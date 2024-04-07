@@ -1,0 +1,95 @@
+<html style='color:blue; font-size:18px'>
+
+<p>Le calcul, pour les différents paliers d'empâtage, des quantités et températures d'eau à ajouter dépend de divers facteurs dont il faut bien 
+    comprendre le rôle.
+</p>
+<p>En premier lieu, ce calcul dépend du mode d'obtention des températures.</p>
+
+<h2>Les différentes méthodes d'obtention des températures</h2>
+
+
+<ul>
+<dl>
+    <dt><strong>Le mode chauffage</strong></dt>
+    <dd>Dans ce mode, les températures sont atteintes par chauffage de la cuve. Il n'y a donc pas besoin d'apport d'eau autre que l'apport initial
+        qui sera toute l'eau d'empâtage. Rappelons que ce mode est implicite et forcé pour les équipements tout en un.
+    </dd>
+</dl>
+<dl>
+    <dt><strong>Le mode infusion</strong></dt>
+    <dd><p>Dans ce mode,on ajoute de l'eau plus chaude à l'eau préexistente du palier précédent pour que le mélange aboutisse à la température désirée.</p>
+        <p>On a donc pour chacun des paliers une finesse (inverse de l'épaisseur) de la maische qui change. Il convient donc d'indiquer pour quel palier d'empâtage cette finesse est définie. </p>
+    </dd>
+</dl>
+<dl>
+    <dt><strong>Le mode décoction</strong></dt>
+    <dd>
+        <p>Dans ce mode, toute l'eau d'empâtage est ajoutée dès le premier palier. Pour atteindre le palier suivant, on prélève une certaine fraction de la maische que l'on chauffe à une
+        température plus élevée avant de la réintroduire dans la cuve.
+        </p>
+    </dd>
+</dl>
+</ul>
+<h2>Principe du calcul et les paramètres influents</h2>
+<h3>Mode chauffage</h3>
+<p>Dans ce mode tout l'eau d'empâtage est ajoutée d'un seul coup. </p>
+<p>Au départ on chauffe l'eau à une température un peu plus élevée que celle du palier initial. Cela est dû au fait qu'au moment de l'introduction du grain (plus froid) la température 
+    va avoir tendance à baisser.
+</p>
+<p>les paramètres influents sur ce calcul autre que la température du palier sont :</p>
+<ul>
+    <li>la quantité de grain (masse)</li>
+    <li>la quantité d'eau d'empâtage</li>
+    <li>la capacité calorifique de la cuve en équivalent de grain. La capacité calorifique du grain étant considérée égale à 0,4 fois celle de l'eau</li>
+   
+</ul>
+<p>Le calcul se fait comme suit. </p>
+<ul>
+    <li>M masse d'eau d'empâtage</li>
+    <li>C capacité calorifique de la cuve en équivalent masse de grain</li>
+    <li>G la masse du grain</li>
+    <li>Tg la température du grain</li>
+    <li>T la température du palier initial</li>
+    <li>T1 la température calculée (température d'attaque</li>
+</ul>
+<p>État initial de la cuve :( M +0.4 C) T1 (chaleur emmagasinée à un coefficient multiplicateur près avant ajout du grain</p>
+<p>Ajout : G Tg (chaleur emmagasinée dans le grain au même coefficient multiplicateur près)</p>
+<p>État final : (M+0.4 G +0.4 C) T  (chaleur emmagasinée  au même coefficient multiplicateur près après ajout du grain</p>
+
+<p>On peut donc écrire :
+    
+</p>
+<p>(M +0.4 C) T1 +G Tg = (M+0.4 G +0.4 C) T</p>
+<p>d'où l'on tire :</p>
+<p><strong>T1 = T + (0.4 G (T-Tg) /(M +0.4 C)</strong></p>
+
+<h3>Mode infusion</h3>
+<p>On doit avoir défini un palier pour lequel l'épaisseur (ou plutôt la finesse) de l'empâtage est définie. C'est le palier de référence</p>
+<p>Le calcul se fait à partir de ce palier dont on connait la température et la masse d'eau.</p>
+<p>Connaissant la température du palier précédent et la température de l'apport d'eau depuis ce palier précédent, 
+    on va rechercher la quantité d'eau Δ à apporter depuis ce palier précédent.</p>
+    <p>L'opération est répétée jusqu'au premier palier en descendant.</p>
+    <p>Cela nécessite de connaître :</p>
+    <ul>
+        <li>M2 la masse d'eau dans le palier de référence</li>
+        <li>T2 la température du palier de référence</li>
+        <li>T1 la température du palier précédent </li>
+        <li>Mg la masse équivalente en terme de capacité thermique de la cuve et du grain</li>
+        <li>Tg la température du grain</li>
+        <li>Tw la température des apport d'eau autre que l'apport initial</li>
+    </ul>
+    <p>On désigne par Δ l'apport d'eau en masse.</p>
+
+<p>État final (palier de référence)   (M2 + 0.4 Mg) T2 (chaleur emmagasinée à un coefficient multiplicateur après ajout de l'eau) </p>
+<p>Ajout d'eau   Δ Tw (chaleur emmagasinée dans l'eau d'apport au même coefficient multiplicateur près)</p>
+<p>État initial (M2 -Δ + 0.4 Mg) T1 (chaleur emmagasinée à un coefficient multiplicateur avant ajout de l'eau</p>
+<p>On peut écrire :</p>
+<p>(M2 - Δ + 0.4 Mg) T1 + Δ Tw = (M2 + 0.4 Mg) T2</p>
+<p>d'où on tire :</p>
+<p><strong>Δ = (M2 + 0.4 * Mg) * (T2 - T1) / (Tw - T1)</strong></p>
+
+<p>Il faut noter que l'on tient compte dans le calcul de la dérive par pertes thermiques durant les paliers.</p>
+<p>En conséquence, on prend une température T2 un peu plus élevée que celle du palier à atteindre et une température T1 un peu plus basse que celle du palier de départ.</p>
+<p>Cette dérive est estimée à partir du coefficient de pertes thermiques horaires de la cuve et de la durée du palier.</p>
+<p>Pour faciliter la pratique, la quantité d'eau à ajouter est exprimé en kg (sensiblement le volume à froid) et en volume à chaud (à la température d'ajout).</p>
+</html> 

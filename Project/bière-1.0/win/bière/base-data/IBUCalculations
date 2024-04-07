@@ -1,0 +1,203 @@
+//IBU  CALCULATIONS
+
+const boil_temperature_kelvin = computed(() => {
+    if (object_equipment.value) {
+        return (
+            100 - (28.8888 * object_equipment.value.altitude) / 9144 + 273.15
+        );
+    }
+});
+
+const malovicki_factor = computed(() => {
+    //this factor correct the Tinseth equation depending on altitude but also
+    //as the temperature decreases during Hopstand
+    if (boil_temperature_kelvin.value) {
+        return 239000000000 * Math.exp(-9773 / boil_temperature_kelvin.value);
+    }
+});
+
+const hop_mass_mash = computed(() => {
+    let mass = 0;
+    recipe_model.hops.forEach((hop) => {
+        if (hop.method === "mash") {
+            mass = mass + Number(hop.quantity);
+        }
+    });
+    return mass;
+});
+
+const hop_mass_first_wort = computed(() => {
+    let mass = 0;
+    recipe_model.hops.forEach((hop) => {
+        if (hop.method === "first-wort") {
+            mass = mass + Number(hop.quantity);
+        }
+    });
+    return mass;
+});
+
+const hop_mass_hop_stand = computed(() => {
+    let mass = 0;
+    recipe_model.hops.forEach((hop) => {
+        if (hop.method === "hop-stand") {
+            mass = mass + Number(hop.quantity);
+        }
+    });
+    return mass;
+});
+
+const hop_mass_boil = computed(() => {
+    let mass = Number(0);
+    recipe_model.hops.forEach((hop) => {
+        if (hop.method === "boil") {
+            mass = mass + Number(hop.quantity);
+        }
+    });
+    return mass;
+});
+
+const hop_mass_dry = computed(() => {
+    let mass = 0;
+    recipe_model.hops.forEach((hop) => {
+        if (hop.method === "dry") {
+            mass = mass + Number(hop.quantity);
+        }
+    });
+    return mass;
+});
+
+const F_G = computed(() => {
+    if (preboil_gravity.value) {
+        return 1.65 * 0.000125 ** (preboil_gravity.value - 1);
+    }
+});
+
+function U_T(t) {
+    return (1 - Math.exp(-0.04 * t)) / 4.15;
+}
+//************************************************************************************* */
+
+const IBU_from_first_wort_hopping = computed(() => {
+    if (F_G.value && object_equipment.value) {
+        let IBU = 0;
+        recipe_model.hops.forEach((h) => {
+            if (h.method === "first-wort") {
+                let ibu =
+                    Number(h.quantity) *
+                    1000 *
+                    Number(h.alpha) *
+                    F_G.value *
+                    U_T(recipe_model.boil_time) *
+                    (10 / postboil_volume_reverse_cold.value) *
+                    malovicki_factor.value *
+                    h.utilization; // utilization is a multiplication factor, not really utilization in the common sense of the term
+                IBU = IBU + ibu;
+                h.ibu = ibu;
+            }
+        });
+        return IBU;
+    }
+});
+//********************************************************************************* */
+const IBU_from_boil_hopping = computed(() => {
+    if (F_G.value) {
+        let IBU = 0;
+        recipe_model.hops.forEach((h, index) => {
+            if (h.method === "boil") {
+                if (h.duration > recipe_model.boil_time) {
+                    h.duration = recipe_model.boil_time;
+                }
+                let AA =
+                    ((Number(h.quantity) * 1000 * h.alpha) / //1000 pour kg to g
+                        100) *
+                    1000; // 1000 for conversion kg to g result in mg /l
+                let ibu =
+                    ((AA * F_G.value * U_T(h.duration)) /
+                        postboil_volume_reverse_cold.value) *
+                    malovicki_factor.value; //to take altitude into account
+                let IAAfromResidual;
+                if (h.keep_after_flameout) {
+                    let residual_AA = calculateResidualAA(AA, h.duration);
+                    //the duration is the hop_stand_duration not h.duration that is for the boil
+                    IAAfromResidual = calculateIAAfromResidual(
+                        residual_AA,
+                        recipe_model.hop_stand_duration
+                    );
+
+                    ibu = ibu + IAAfromResidual;
+                }
+                IBU = IBU + ibu; //IBU for all hops
+                h.ibu = ibu;
+            }
+        });
+        return IBU;
+    }
+});
+
+//**************************************************************** */
+const IBU_from_hop_stand_hopping = computed(() => {
+    if (true) {
+        //(object_equipment.value.cooler_type === "Immersion") {
+        let IBU = 0;
+
+        recipe_model.hop_stand_temperature;
+
+        recipe_model.hops.forEach((h, index) => {
+            if (h.method === "hop-stand") {
+                h.wrong_method = false;
+                let AA =
+                    ((Number(h.quantity) * 1000 * h.alpha) / //1000 pour kg to g
+                        100) *
+                    1000; // 1000 for conversion kg to g result in mg /l
+                let keep;
+                if (h.keep_after_flameout) {
+                    keep = 1; //we use loose hops
+                } else {
+                    keep = 0; //we use hops in a mesh bag
+                }
+                let ibu;
+                if (h.hop_stand_calculation_method === "basic") {
+                    ibu =
+                        (AA * h.utilization) /
+                        100 /
+                        postboil_volume_reverse_cold.value; // ppm =>IBU
+                } else {
+                    if (h.hop_stand_calculation_method === "integration") {
+                        ibu = calculateHopStandIAA(
+                            AA,
+                            recipe_model.hop_stand_duration,
+                            keep
+                        );
+                    }
+                }
+
+                h.ibu = ibu;
+                IBU = IBU + ibu;
+            }
+        });
+        return IBU;
+    }
+    recipe_model.hops.forEach((h, index) => {
+        if (h.method === "hop-stand") {
+            h.ibu = 0;
+            h.wrong_method = true;
+        }
+    });
+    return 0;
+});
+//**************************************************************** */
+const total_IBU = computed(() => {
+    if (
+        IBU_from_first_wort_hopping.value >= 0 &&
+        IBU_from_boil_hopping.value >= 0 &&
+        IBU_from_hop_stand_hopping.value >= 0
+    ) {
+        let b= (
+            IBU_from_first_wort_hopping.value +
+            IBU_from_boil_hopping.value +
+            IBU_from_hop_stand_hopping.value
+        ).toFixed(1);
+        recipe_model.bitterness=b;
+        return b;
+    }
+});

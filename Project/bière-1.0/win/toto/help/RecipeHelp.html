@@ -1,0 +1,75 @@
+
+  <html style='color:blue'>
+  <h1> Aide sur la recette</h1>
+  <ul>
+   <li>Généralités sur la recette</li>
+   <li>Opération réalisables</li>
+   <li>Modes de sélection</li>
+  </ul>
+
+  <p>-----------------------------------------------------------------------------------</p>
+
+  <h2>Généralités sur la recette</h2>
+ 
+  <p>Dans notre conception, une recette définit un but à atteindre, pas les moyens utilisés pour atteindre ce but. C'est un point capital qui différencie ce logiciel des autres logiciel de brassage.</p>
+  <p>Ainsi la définition de la recette n'inclut pas le volume. Cette donnée n'est nécessaire que lors de la mise en œuvre de la recette c.-à-d. lors d'une session de brassage</p>
+  <p>La recette n'inclut pas non plus l'équipement utilisé. On peut mettre en œuvre une recette sur n'importe quel équipement. </p>
+  <p>Les quantités d'ingrédient ne comportent pas d'unité car ce qui importe c'est uniquement la proportion de chacun d'eux dans le total de la catégorie (fermentables, houblons, etc.)</p>
+  <p>Si vous recopiez une recette, peu importe les unités, contentez-vous de les saisir telles quelles. Si vous créer une recette entrez des valeurs respectant ces proportions</p>
+  <p>Par exemple :</p>
+  <p>Pour une recette comprenant :</p>
+  <ul>
+    <li>5 kg de malt Pilsen 2R</li>
+    <li>0.5 kg de malt Cara Ruby</li>
+    <li>0.25 kg de malt Pils</li>
+
+  </ul>
+  <p>vous pouvez vous contenter d'entrer les valeurs suivantes 5 , 0.5 et 0.25 </p>
+  <p>Vous obtiendriez la même recette en saisissant 10, 1 et 0.5 ou 50, 5 et 2.5</p>
+  <p>Il n'y a donc aucune précaution à prendre pour saisir une recette en US Pound</p>
+  <p>Lors de la session de brassage mettant en œuvre cette recette, les quantités nécessaires seront recalculées en fonction de la performance de l'équipement utilisé et de la cible à atteindre 
+    (cible de densité spécifique pour les fermentables, cible d'amertume pour les houblons).
+    <p>Les cibles, précédemment citées, font donc partie de la recette.</p>
+    <p>Le temps d'ébullition est aussi une donnée de la recette car il influe sur les caractéristiques de la bière produite. Les quantités d'eau à utiliser lors d'une session de brassage seront calculées en prentant 
+      en compte ce paramètre ainsi que le taux d'évaporation de l'équipement et le volume cible du lot.
+    </p>
+  </p>
+
+  <h2>Sélecteurs d'ingredients</h2>
+  <p>Les différents ingrédients de la recette (fermentables, houblons, levures, ingrédient divers,...) sont accessibles chacun dans leur onglet respectif.</p>
+  <p>Un click sur le bouton <em>Montrer le sélecteur</em> divise l'onglet horizontalement en deux parties. À gauche la liste des ingrédients utilisés par la recette, à droite la liste des ingrédients du commerce.</p>
+  
+  <h3>Opérations réalisables</h3>
+  <p>Une fois les deux listes visibles, il est possible d'effectuer les opérations suivantes</p>
+  <ul>
+    <li>Ajouter un ingrédient à la recette</li>
+    <li>Remplacer un ingrédient de la recette par un autre ingrédient de la liste de droite</li>
+    <li>Supprimer un ingrédient de la recette</li>
+    <li>Mettre à jour la quantité d'un ingrédient de la recette</li>
+  </ul>
+  
+  <h3>Modes de sélection</h3>
+  
+  <dl>
+    <dt><strong>Sélection simple</strong></dt>
+    <dd>Pour sélectionner un élément d'une liste il suffit de cliquer dessus. </dd>
+    <dt><strong>Déselection</strong></dt>
+    <dd>En cliquant à nouveau sur un élément sélectionné, on provoque sa déselection</dd>
+    <dt><strong>Mise à jour ou supprimer</strong></dt>
+    <dd>Pour mettre la quantité d'un élément à jour, il suffit de le sélectionner dans la liste de gauche, et de supprimer la sélection dans la liste de droite. Les boutons <em>Mettre à jour</em> et
+     <e<dt><strong>Mise à jour ou supprimer un ingrédient de la recette</strong></dt>
+    <dd>Pour mettre la quantité d'un élément à jour, il suffit de le sélectionner dans la liste de gauche, et de supprimer la sélection dans la liste de droite. Les boutons <em>Mettre à jour</em> et
+     <em>Supprimer</em> sont alors visibles tandis que les autres boutons disparaissent</dd>
+     
+     <dt><strong>Ajouter un élément à la recette</strong></dt>
+     <dd>Pour ajouter un élément à la recette, il suffit de le sélectionner dans la liste de droite, et de supprimer une sélection éventuelle dans la liste de gauche. Les boutons <em>Mettre à jour</em> et
+      <em>Supprimer</em> disparaissent tandis que le bouton <em>Ajouter à la recette</em> apparait.</dd>
+
+      <dt><strong>Remplacer un élément par un autre</strong></dt>
+      <dd>Pour effectuer un remplacement, il faut avoir une sélection dans les deux liste. Le bouton <em>Remplacer</em> apparait alors. Notez que le champ <em>Quantité</em> est préchargé 
+      avec la quantité pré-existante de l'ingrédient de recette. Ce champ peut bien sûr être modifié avant d'effectuer le remplacement.</dd>
+  </dl>
+
+  <p>D'une façon générale, la validité du champ <em>Quantité</em> est contrôlée uniquement pour les opérations le nécessitant.</p>
+</html>
+
